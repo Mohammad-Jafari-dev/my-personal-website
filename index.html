@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mohammad Jafari | Aspiring AI Engineer</title>
+<meta name="description" content="Mohammad Jafari — a 15-year-old Iranian aspiring AI engineer, learning programming and machine learning and building practical projects" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800&display=swap" rel="stylesheet" />
+
+<!--
+Apply the saved theme BEFORE first paint so the wrong theme never flashes.
+Default for a first visit: system (follows the OS preference).
+-->
+<script>
+(function () {
+  var t = "system";
+  try { t = localStorage.getItem("mj_theme") || "system"; } catch (e) {}
+  document.documentElement.dataset.theme = t;
+})();
+</script>
+
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ===== Top navbar ===== -->
+<header class="navbar">
+  <div class="container nav-inner">
+    <a href="#home" class="logo">Mohammad Jafari</a>
+
+    <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+      <a href="#about" data-i18n="nav_about">About me</a>
+      <a href="#learning" data-i18n="nav_learning">Learning Journey</a>
+      <a href="#projects" data-i18n="nav_projects">Projects</a>
+      <a href="#contact" data-i18n="nav_contact">Contact me</a>
+    </nav>
+
+    <div class="nav-actions">
+      <!-- ⬇️ Language selector (default: English) -->
+      <select id="langSelect" class="lang-select" aria-label="Language">
+        <option value="en">🇬🇧 English</option>
+        <option value="fa">🇮🇷 فارسی</option>
+        <option value="ar">🇸🇦 العربية</option>
+        <option value="es">🇪🇸 Español</option>
+        <option value="ja">🇯🇵 日本語</option>
+        <option value="zh">🇨🇳 中文</option>
+        <option value="fr">🇫🇷 Français</option>
+        <option value="it">🇮🇹 Italiano</option>
+        <option value="de">🇩🇪 Deutsch</option>
+        <option value="tr">🇹🇷 Türkçe</option>
+      </select>
+
+      <!-- ⬇️ Theme button: cycles dark → light → system -->
+      <button type="button" id="themeBtn" class="theme-btn" aria-label="Theme">💻</button>
+
+      <button type="button" class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== Quick sidebar navigation ===== -->
+<!-- Mobile: floating toggle button (desktop hides it). -->
+<button type="button" id="sidebarToggle" class="sidebar-toggle" aria-expanded="false" aria-controls="quickNav" data-i18n-aria="side_toggle">
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+    <path d="M4 7h16M4 12h16M4 17h10" />
+  </svg>
+</button>
+
+<div class="sidebar-backdrop" id="sidebarBackdrop" hidden></div>
+
+<nav class="quick-nav" id="quickNav" data-i18n-aria="side_toggle" aria-label="Quick navigation">
+  <button type="button" class="sidebar-close" id="sidebarClose" data-i18n-aria="side_close" aria-label="Close">&times;</button>
+
+  <ul>
+    <li>
+      <a href="#home" class="active" data-section="home" data-i18n-aria="side_home" data-i18n-tip="side_home">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 10.5 12 3l9 7.5" /><path d="M5 9.5V20a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V9.5" />
+        </svg>
+      </a>
+    </li>
+    <li>
+      <a href="#about" data-section="about" data-i18n-aria="side_about" data-i18n-tip="side_about">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="8" r="4" /><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5" />
+        </svg>
+      </a>
+    </li>
+    <li>
+      <a href="#learning" data-section="learning" data-i18n-aria="side_learning" data-i18n-tip="side_learning">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 6c-2-1.6-5-2.2-8-2.2V18c3 0 6 .6 8 2.2 2-1.6 5-2.2 8-2.2V3.8c-3 0-6 .6-8 2.2z" /><path d="M12 6v14.2" />
+        </svg>
+      </a>
+    </li>
+    <li>
+      <a href="#projects" data-section="projects" data-i18n-aria="side_projects" data-i18n-tip="side_projects">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="m8 7-5 5 5 5" /><path d="m16 7 5 5-5 5" />
+        </svg>
+      </a>
+    </li>
+    <li>
+      <a href="#contact" data-section="contact" data-i18n-aria="side_contact" data-i18n-tip="side_contact">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7.5 9 6 9-6" />
+        </svg>
+      </a>
+    </li>
+  </ul>
+
+  <button type="button" class="theme-btn-side" id="themeBtnSide" aria-label="Theme">💻</button>
+</nav>
+
+<!-- ===== Hero ===== -->
+<section class="hero" id="home">
+  <div class="container">
+    <!--
+    ⬇️ Avatar: place your profile photo next to these files as avatar.jpg;
+    it shows automatically. Without a photo, your initials (MJ) are shown.
+    -->
+    <div class="avatar reveal" id="avatar">
+      <img id="avatarImg" src="avatar.jpg" alt="Mohammad Jafari"
+        onerror="this.style.display='none'; document.getElementById('initials').style.display='flex';" />
+      <span id="initials" class="initials" style="display:none;">MJ</span>
+    </div>
+
+    <h1><span class="accent">Mohammad Jafari</span></h1>
+    <p class="hero-tagline reveal" data-i18n="hero_headline">Aspiring AI Engineer | Learning, Building, and Growing with AI</p>
+    <p class="hero-sub reveal" data-i18n="hero_desc">I'm building my foundations in programming and artificial intelligence, turning what I learn into practical projects, and connecting with people who share a passion for technology and innovation.</p>
+
+    <div class="hero-actions">
+      <a href="#projects" class="btn btn-primary" data-i18n="btn_projects">View projects</a>
+      <a href="#contact" class="btn btn-outline" data-i18n="btn_contact">Get in touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== About me ===== -->
+<section class="section" id="about">
+  <div class="container">
+    <h2 class="section-title" data-i18n="about_title">About me</h2>
+    <p class="about-text reveal" data-i18n="about_text">I'm Mohammad Jafari, a 15-year-old Iranian aspiring AI engineer with a strong curiosity about technology and a passion for continuous learning. I'm currently building my foundations in Python, machine learning, and artificial intelligence. My goal is to turn what I learn into practical projects that solve real-world problems and help me grow as an engineer. I believe that age shouldn't be a barrier to learning, creating, or pursuing ambitious goals. I enjoy experimenting, learning from mistakes, and improving step by step. Along this journey, I aim to build useful AI-powered applications, share my progress, and connect with people who are passionate about technology and innovation.</p>
+    <p class="about-focus reveal"><strong data-i18n="about_focus_label">Currently focused:</strong> <span data-i18n="about_focus_text">Strengthening my programming skills, exploring AI, and building a solid foundation for future projects.</span></p>
+  </div>
+</section>
+
+<!-- ===== Learning Journey ===== -->
+<section class="section section-alt" id="learning">
+  <div class="container">
+    <h2 class="section-title" data-i18n="learn_title">My Learning Journey</h2>
+    <p class="about-text reveal" data-i18n="learn_text">I'm at the beginning of my journey into programming and AI. I'm learning step by step, building my foundations, and working toward my first projects.</p>
+    <p class="learn-intro reveal" data-i18n="learn_intro">Topics I'm currently learning:</p>
+    <div class="tags reveal">
+      <span class="tag" data-i18n="tag_ml">Machine Learning</span>
+      <span class="tag" data-i18n="tag_python">Python</span>
+      <span class="tag">JavaScript</span>
+      <span class="tag">HTML</span>
+      <span class="tag" data-i18n="tag_ai">Working with AI model APIs</span>
+      <span class="tag" data-i18n="tag_prompt">Prompt Engineering</span>
+      <span class="tag" data-i18n="tag_more">...and exploring more</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Projects ===== -->
+<section class="section" id="projects">
+  <div class="container">
+    <h2 class="section-title" data-i18n="proj_title">Projects</h2>
+    <div class="grid">
+
+      <!-- ✅ Verified GitHub profile (real, clickable) -->
+      <article class="card reveal">
+        <div class="card-icon">🐙</div>
+        <h3 data-i18n="proj_github_title">My GitHub Profile</h3>
+        <p data-i18n="proj_github_desc">Follow my learning journey and explore the code behind my projects on GitHub.</p>
+        <a class="btn btn-outline card-btn" href="https://github.com/Mohammad-Jafari-dev" target="_blank" rel="noopener" data-i18n="btn_github">View my GitHub</a>
+      </article>
+
+      <!-- 🚧 Honest placeholder: real beginner projects will replace/extend this card -->
+      <article class="card card-coming reveal">
+        <div class="card-icon">🚧</div>
+        <h3 data-i18n="proj_coming_title">More Projects Coming Soon</h3>
+        <p data-i18n="proj_coming_text">I'm working on my first real projects. They'll be published here as soon as they're ready.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== Contact ===== -->
+<section class="section section-alt" id="contact">
+  <div class="container">
+    <h2 class="section-title" data-i18n="contact_title">Contact me</h2>
+    <p class="contact-intro reveal" data-i18n="contact_intro">The best way to reach me right now is through GitHub. More contact options will be added soon.</p>
+
+    <div class="contact-list">
+      <!-- ✅ Verified GitHub profile (real, clickable) -->
+      <a class="contact-item reveal" href="https://github.com/Mohammad-Jafari-dev" target="_blank" rel="noopener">
+        <span class="contact-icon">🐙</span>
+        <span class="contact-text">
+          <strong data-i18n="c_github">GitHub</strong>
+          <small dir="ltr">github.com/Mohammad-Jafari-dev</small>
+        </span>
+      </a>
+
+      <!-- 🔜 LinkedIn stays a non-clickable "coming soon" item until a real URL exists -->
+      <div class="contact-item contact-soon reveal">
+        <span class="contact-icon">🔗</span>
+        <span class="contact-text">
+          <strong data-i18n="c_linkedin">LinkedIn</strong>
+        </span>
+        <span class="soon-badge" data-i18n="c_soon">Coming soon</span>
+      </div>
+    </div>
+
+    <p class="contact-note reveal" data-i18n="contact_note">Feel free to open an issue or start a discussion on any of my repositories.</p>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="footer">
+  <div class="container">
+    <p data-i18n="footer_copy">© Mohammad Jafari — Learning with curiosity. Building with purpose.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
