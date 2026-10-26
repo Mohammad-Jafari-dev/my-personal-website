@@ -194,7 +194,7 @@ svg {
 
 @media (hover: hover) and (pointer: fine) {
   .btn:hover,
-  .contact-item:hover,
+  .contact-item:not(.contact-soon):hover,
   .tag:hover,
   .theme-btn:hover,
   .theme-btn-side:hover,
@@ -216,12 +216,12 @@ svg {
     color: var(--accent);
     background: var(--tag-bg);
   }
-  .contact-item:hover {
+  .contact-item:not(.contact-soon):hover {
     color: var(--text);
   }
 
   .btn:active,
-  .contact-item:active,
+  .contact-item:not(.contact-soon):active,
   .tag:active,
   .theme-btn:active,
   .theme-btn-side:active,
@@ -842,6 +842,7 @@ select:focus-visible {
     top: auto;
     bottom: 0;
     transform: translateY(105%);
+    visibility: hidden;
     width: 100%;
     border-radius: 20px 20px 0 0;
     border-bottom: none;
@@ -849,10 +850,11 @@ select:focus-visible {
     flex-direction: column;
     align-items: stretch;
     gap: 8px;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, visibility 0.3s ease;
   }
   .quick-nav.open {
     transform: translateY(0);
+    visibility: visible;
   }
 
   .quick-nav ul {

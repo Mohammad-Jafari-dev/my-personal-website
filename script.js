@@ -745,18 +745,29 @@ if (quickNav) {
 
 const pageSections = document.querySelectorAll("section[id]");
 if ("IntersectionObserver" in window && pageSections.length) {
+  const updateActiveSection = (activeId) => {
+    Object.keys(sectionLinks).forEach((id) => {
+      sectionLinks[id].classList.toggle("active", id === activeId);
+    });
+  };
+
   const sectionObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        Object.keys(sectionLinks).forEach((id) => {
-          sectionLinks[id].classList.toggle("active", id === entry.target.id);
-        });
+        if (entry.isIntersecting) {
+          updateActiveSection(entry.target.id);
+        }
       });
     },
-    { rootMargin: "-40% 0px -55% 0px" }
+    { rootMargin: "-30% 0px -50% 0px" }
   );
   pageSections.forEach((s) => sectionObserver.observe(s));
+
+  window.addEventListener("scroll", () => {
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 15) {
+      updateActiveSection("contact");
+    }
+  }, { passive: true });
 }
 
 /* ================== Scroll-reveal animations ================== */
