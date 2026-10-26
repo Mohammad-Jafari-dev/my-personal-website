@@ -5,18 +5,34 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Mohammad Jafari | Aspiring AI Engineer</title>
 <meta name="description" content="Mohammad Jafari — a 15-year-old Iranian aspiring AI engineer, learning programming and machine learning and building practical projects" />
+
+<!-- Open Graph / Social Sharing Meta Tags -->
+<meta property="og:title" content="Mohammad Jafari | Aspiring AI Engineer" />
+<meta property="og:description" content="Mohammad Jafari — a 15-year-old Iranian aspiring AI engineer, learning programming and machine learning and building practical projects" />
+<meta property="og:image" content="avatar.jpg" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Mohammad Jafari | Aspiring AI Engineer" />
+<meta name="twitter:description" content="Mohammad Jafari — a 15-year-old Iranian aspiring AI engineer, learning programming and machine learning and building practical projects" />
+<meta name="twitter:image" content="avatar.jpg" />
+
+<link rel="icon" type="image/jpeg" href="avatar.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800&display=swap" rel="stylesheet" />
 
 <!--
-Apply the saved theme BEFORE first paint so the wrong theme never flashes.
-Default for a first visit: system (follows the OS preference).
+Apply saved theme & language BEFORE first paint to avoid UI flashes.
 -->
 <script>
 (function () {
-  var t = "system";
-  try { t = localStorage.getItem("mj_theme") || "system"; } catch (e) {}
+  var t = "system", l = "en";
+  try {
+    t = localStorage.getItem("mj_theme") || "system";
+    l = localStorage.getItem("mj_lang") || "en";
+  } catch (e) {}
   document.documentElement.dataset.theme = t;
+  document.documentElement.lang = l;
+  if (l === "fa" || l === "ar") document.documentElement.dir = "rtl";
 })();
 </script>
 
@@ -74,35 +90,35 @@ Default for a first visit: system (follows the OS preference).
 
   <ul>
     <li>
-      <a href="#home" class="active" data-section="home" data-i18n-aria="side_home" data-i18n-tip="side_home">
+      <a href="#home" class="active" data-section="home" data-i18n-aria="side_home" data-i18n-tip="side_home" data-tip="Home" aria-label="Home">
         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M3 10.5 12 3l9 7.5" /><path d="M5 9.5V20a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V9.5" />
         </svg>
       </a>
     </li>
     <li>
-      <a href="#about" data-section="about" data-i18n-aria="side_about" data-i18n-tip="side_about">
+      <a href="#about" data-section="about" data-i18n-aria="side_about" data-i18n-tip="side_about" data-tip="About me" aria-label="About me">
         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <circle cx="12" cy="8" r="4" /><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5" />
         </svg>
       </a>
     </li>
     <li>
-      <a href="#learning" data-section="learning" data-i18n-aria="side_learning" data-i18n-tip="side_learning">
+      <a href="#learning" data-section="learning" data-i18n-aria="side_learning" data-i18n-tip="side_learning" data-tip="Learning" aria-label="Learning">
         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M12 6c-2-1.6-5-2.2-8-2.2V18c3 0 6 .6 8 2.2 2-1.6 5-2.2 8-2.2V3.8c-3 0-6 .6-8 2.2z" /><path d="M12 6v14.2" />
         </svg>
       </a>
     </li>
     <li>
-      <a href="#projects" data-section="projects" data-i18n-aria="side_projects" data-i18n-tip="side_projects">
+      <a href="#projects" data-section="projects" data-i18n-aria="side_projects" data-i18n-tip="side_projects" data-tip="Projects" aria-label="Projects">
         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="m8 7-5 5 5 5" /><path d="m16 7 5 5-5 5" />
         </svg>
       </a>
     </li>
     <li>
-      <a href="#contact" data-section="contact" data-i18n-aria="side_contact" data-i18n-tip="side_contact">
+      <a href="#contact" data-section="contact" data-i18n-aria="side_contact" data-i18n-tip="side_contact" data-tip="Contact" aria-label="Contact">
         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7.5 9 6 9-6" />
         </svg>
